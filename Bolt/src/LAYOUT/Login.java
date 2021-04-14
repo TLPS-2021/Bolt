@@ -129,9 +129,44 @@ public class Login extends javax.swing.JFrame {
    
     private void jButton_LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LOGINActionPerformed
         
-     
-
+      PreparedStatement ps;
+        ResultSet rs;
         
+        try {
+            ps = CLASSES.DB_INFO.getConnection().prepareStatement("SELECT `username`, `password` , `user_type` FROM `users` WHERE `username` = ? AND `password` = ?");
+            ps.setString(1, jTextField_Username.getText());
+            ps.setString(2, String.valueOf(jPasswordField_UserPass.getPassword()));
+            
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                Home homeForm = new Home();
+                
+                if(rs.getString("user_type").equals("user"))
+                {
+                    homeForm.jMenu5_USER_.setVisible(false);
+                }
+                
+                homeForm.pack();
+                homeForm.setExtendedState(homeForm.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+                Dimension r = homeForm.getBounds().getSize();
+                homeForm.jLabel_BackgroundImage.setPreferredSize(r);
+                homeForm.setVisible(true);
+                
+                homeForm.setLocationRelativeTo(null);
+                homeForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                
+                this.dispose();
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Hibás jelszó vagy felhasználónév!","Hiba történt a bejelntkezés közben.",2);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }//GEN-LAST:event_jButton_LOGINActionPerformed
 
     /**
