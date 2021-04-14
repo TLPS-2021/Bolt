@@ -149,7 +149,7 @@ public class Login extends javax.swing.JFrame {
                 }
                 
                 homeForm.pack();
-                homeForm.setExtendedState(homeForm.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+                
                 Dimension r = homeForm.getBounds().getSize();
                 homeForm.jLabel_BackgroundImage.setPreferredSize(r);
                 homeForm.setVisible(true);
