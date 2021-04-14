@@ -55,10 +55,8 @@ public class Login extends javax.swing.JFrame {
         jLabel_Form_Title.setOpaque(true);
 
         jTextField_Username.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField_Username.setText("admin");
 
         jPasswordField_UserPass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPasswordField_UserPass.setText("adminpass");
 
         jButton_LOGIN.setBackground(new java.awt.Color(0, 51, 152));
         jButton_LOGIN.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
