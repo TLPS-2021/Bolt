@@ -40,11 +40,11 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setText("Felhasználónév");
+        jLabel1.setText("Felhasználónév:");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel2.setText("Jelszó");
+        jLabel2.setText("Jelszó:");
 
         jLabel_Form_Title.setBackground(new java.awt.Color(0, 51, 153));
         jLabel_Form_Title.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
