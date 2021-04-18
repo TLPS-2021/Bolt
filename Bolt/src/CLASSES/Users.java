@@ -20,13 +20,17 @@ public class Users {
     private String user_type;
     private String fullname;
     
-    public Users(Integer ID, String U, String PW,String UT, String FN)
+
+     public Users(){}
+    
+    
+    public Users(Integer ID, String UNAME, String PASW,String UTYP, String FNAME)
     {
         this.id = ID;
-        this.username = U;
-        this.password = PW;
-        this.fullname = FN;
-        this.user_type = UT;
+        this.username = UNAME;
+        this.password = PASW;
+        this.fullname = FNAME;
+        this.user_type = UTYP;
     }
 
     
