@@ -55,8 +55,20 @@ public class Login extends javax.swing.JFrame {
         jLabel_Form_Title.setOpaque(true);
 
         jTextField_Username.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField_Username.setText("admin");
+        jTextField_Username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_UsernameActionPerformed(evt);
+            }
+        });
 
         jPasswordField_UserPass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPasswordField_UserPass.setText("admin");
+        jPasswordField_UserPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField_UserPassActionPerformed(evt);
+            }
+        });
 
         jButton_LOGIN.setBackground(new java.awt.Color(0, 51, 152));
         jButton_LOGIN.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -166,6 +178,14 @@ public class Login extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_jButton_LOGINActionPerformed
+
+    private void jTextField_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_UsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_UsernameActionPerformed
+
+    private void jPasswordField_UserPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField_UserPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField_UserPassActionPerformed
 
     /**
      * @param args the command line arguments
