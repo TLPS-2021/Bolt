@@ -11,5 +11,11 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Users {
-
+    Connection connection;
+    
+    private Integer id;
+    private String username;
+    private String password;
+    private String user_type;
+    private String fullname;
 }
