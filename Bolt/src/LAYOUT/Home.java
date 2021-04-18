@@ -62,7 +62,11 @@ public class Home extends javax.swing.JFrame {
 
     private void jMenu5_USER_MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5_USER_MouseClicked
         
-        
+         Users Userp = new Users();
+                Userp.pack();
+                Userp.setVisible(true);
+                Userp.setLocationRelativeTo(null);
+                Userp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenu5_USER_MouseClicked
 
     /**
