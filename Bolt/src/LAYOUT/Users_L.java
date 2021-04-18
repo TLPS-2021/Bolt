@@ -17,14 +17,13 @@ import javax.swing.table.JTableHeader;
  *
  * @author levail
  */
-public class Users extends javax.swing.JFrame {
+public class Users_L extends javax.swing.JFrame {
 
     /**
-     * Creates new form MANAGE_USERS_FORM
+     * Creates new form Users
      */
-    public Users() {
+    public Users_L() {
         initComponents();
-        
         
         jTable_USERS.setShowGrid(true);
         
@@ -36,14 +35,7 @@ public class Users extends javax.swing.JFrame {
 
         th.setFont(new Font("Tahoma", Font.PLAIN, 16));
     }
-
-    
-    
-
-    
-    
-    
-    
+ 
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -294,13 +286,13 @@ public class Users extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Users.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Users_L.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Users.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Users_L.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Users.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Users_L.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Users.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Users_L.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -310,7 +302,7 @@ public class Users extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Users().setVisible(true);
+                new Users_L().setVisible(true);
             }
         });
         //még komment
