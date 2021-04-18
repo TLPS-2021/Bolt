@@ -109,10 +109,10 @@ public class Users extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable_USERS);
 
-        jButton_INSERT_.setBackground(new java.awt.Color(30, 130, 76));
+        jButton_INSERT_.setBackground(new java.awt.Color(0, 255, 0));
         jButton_INSERT_.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton_INSERT_.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_INSERT_.setText("Insert");
+        jButton_INSERT_.setLabel("Beillesztés");
         jButton_INSERT_.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_INSERT_ActionPerformed(evt);
@@ -122,17 +122,17 @@ public class Users extends javax.swing.JFrame {
         jButton_UPDATE_.setBackground(new java.awt.Color(65, 131, 215));
         jButton_UPDATE_.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton_UPDATE_.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_UPDATE_.setText("Edit");
+        jButton_UPDATE_.setLabel("Módosítás");
         jButton_UPDATE_.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_UPDATE_ActionPerformed(evt);
             }
         });
 
-        jButton_DELETE_.setBackground(new java.awt.Color(246, 36, 89));
+        jButton_DELETE_.setBackground(new java.awt.Color(255, 0, 0));
         jButton_DELETE_.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton_DELETE_.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_DELETE_.setText("Remove");
+        jButton_DELETE_.setLabel("Törlés");
         jButton_DELETE_.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_DELETE_ActionPerformed(evt);
