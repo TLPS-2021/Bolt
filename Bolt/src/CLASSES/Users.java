@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
 public class Users {
     Connection connection;
     
@@ -19,7 +20,17 @@ public class Users {
     private String user_type;
     private String fullname;
     
-        public Integer getId() {
+    public Users(Integer ID, String U, String PW,String UT, String FN)
+    {
+        this.id = ID;
+        this.username = U;
+        this.password = PW;
+        this.fullname = FN;
+        this.user_type = UT;
+    }
+
+    
+    public Integer getId() {
         return id;
     }
 
@@ -57,5 +68,37 @@ public class Users {
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+
+
+    public ArrayList<Users> UsersList(){
+        
+        ArrayList<Users> user_list = new ArrayList<>();
+        connection = DB_INFO.getConnection();
+
+        ResultSet rs;
+        PreparedStatement ps;
+
+               String query = "SELECT `id`, `username`, `password`, `user_type`, `fullname` FROM `users` WHERE `user_type` = 'user'";
+        
+        try {
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+           
+            Users user;
+            while(rs.next()){
+               user = new Users(rs.getInt("id"), 
+                                 rs.getString("username"),
+                                 rs.getString("password"),
+                                 rs.getString("user_type"),
+                                 rs.getString("fullname")
+                );
+                user_list.add(user);
+            }
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return user_list;
     }
 }
