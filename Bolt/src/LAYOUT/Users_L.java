@@ -22,8 +22,10 @@ public class Users_L extends javax.swing.JFrame {
     /**
      * Creates new form Users
      */
-    public Users_L() {
+     public Users_L() {
         initComponents();
+        
+        populateJtable();
         
         jTable_USERS.setShowGrid(true);
         
@@ -36,7 +38,26 @@ public class Users_L extends javax.swing.JFrame {
         th.setFont(new Font("Tahoma", Font.PLAIN, 16));
     }
  
-    
+    public void populateJtable(){
+        
+        CLASSES.Users user = new CLASSES.Users();
+        ArrayList<CLASSES.Users> userList = user.UsersList();
+        
+        String[] colNames = {"Id","username","password","fullname"};
+        Object[][] rows = new Object[userList.size()][6];
+
+        for(int i = 0; i < userList.size(); i++){
+          
+            rows[i][0] = userList.get(i).getId();
+            rows[i][1] = userList.get(i).getUsername();
+            rows[i][2] = userList.get(i).getPassword();
+            rows[i][3] = userList.get(i).getFullname();
+        }
+        
+        DefaultTableModel mmodel = new DefaultTableModel(rows, colNames);
+        jTable_USERS.setModel(mmodel);
+        jTable_USERS.setRowHeight(45);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
