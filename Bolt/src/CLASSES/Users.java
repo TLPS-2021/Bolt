@@ -105,4 +105,33 @@ public class Users {
         }
         return user_list;
     }
+    
+     public static void insertUser(Users user)
+    {
+        System.out.println("insert user");
+        Connection con = DB_INFO.getConnection();
+        PreparedStatement ps;
+        
+        try {
+            ps = con.prepareStatement("INSERT INTO `users`(`username`, `password`, `user_type`, `fullname`) VALUES (?,?,?,?)");
+
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, "user");
+            ps.setString(4, user.getFullname());
+            
+
+            if(ps.executeUpdate() != 0){
+                JOptionPane.showMessageDialog(null, "Új felhasználó hozzáadva!");
+                
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Hiba történt a művelet elvégzése közben");
+                    
+                }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

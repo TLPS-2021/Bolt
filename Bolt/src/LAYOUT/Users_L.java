@@ -271,7 +271,17 @@ public class Users_L extends javax.swing.JFrame {
 
  //adduser
     private void jButton_INSERT_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_INSERT_ActionPerformed
+            if(verifFields())
+        {
+            String uname = jTextField_USERNAME.getText();
+            String pass = jTextField_PASSWORD.getText();
+            String fname = jTextField_FULLNAME.getText();
 
+            CLASSES.Users user = new CLASSES.Users(null,uname,pass,null,fname);
+            CLASSES.Users.insertUser(user);
+            populateJtable();
+        }
+        
     }//GEN-LAST:event_jButton_INSERT_ActionPerformed
 //updateuser
     private void jButton_UPDATE_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UPDATE_ActionPerformed
@@ -286,7 +296,16 @@ public class Users_L extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_USERNAMEActionPerformed
 
- 
+    public boolean verifFields()
+    {
+        if(jTextField_USERNAME.getText().equals("") || jTextField_PASSWORD.getText().equals("") || jTextField_FULLNAME.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Egy vagy tobb mező üres!", "Minden mező üres!", 0);
+            return false;
+        }else{
+            return true;
+        }
+    }
     
     
     
