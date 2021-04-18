@@ -235,16 +235,15 @@ public class Users extends javax.swing.JFrame {
         jTextField_FULLNAME.setText(jTable_USERS.getValueAt(rowIndex, 3).toString());
     }//GEN-LAST:event_jTable_USERSMouseClicked
 
-    
-    // button add a new user
+ //adduser
     private void jButton_INSERT_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_INSERT_ActionPerformed
 
     }//GEN-LAST:event_jButton_INSERT_ActionPerformed
-
+//updateuser
     private void jButton_UPDATE_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UPDATE_ActionPerformed
    
     }//GEN-LAST:event_jButton_UPDATE_ActionPerformed
-
+//del user
     private void jButton_DELETE_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DELETE_ActionPerformed
      
     }//GEN-LAST:event_jButton_DELETE_ActionPerformed
