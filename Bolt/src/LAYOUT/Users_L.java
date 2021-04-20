@@ -131,7 +131,7 @@ public class Users_L extends javax.swing.JFrame {
         jButton_INSERT_.setBackground(new java.awt.Color(0, 255, 0));
         jButton_INSERT_.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton_INSERT_.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_INSERT_.setLabel("Beillesztés");
+        jButton_INSERT_.setText("Hozzáadás");
         jButton_INSERT_.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_INSERT_ActionPerformed(evt);
@@ -285,7 +285,25 @@ public class Users_L extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_INSERT_ActionPerformed
 //updateuser
     private void jButton_UPDATE_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UPDATE_ActionPerformed
-   
+        try{
+            
+            if(verifFields())
+            {
+                Integer id = Integer.valueOf(jTextField_ID.getText());
+                String uname = jTextField_USERNAME.getText();
+                String pass = jTextField_PASSWORD.getText();
+                String fname = jTextField_FULLNAME.getText();
+
+                CLASSES.Users user = new CLASSES.Users(id,uname,pass,null,fname);
+                CLASSES.Users.ModifyUser(user);
+                System.out.println("gomb");
+                populateJtable();
+            }
+            
+        }
+        catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Nincs felhasználó kiválasztva!", "Nincs felhasználó kiválasztva+", 1);
+                }
     }//GEN-LAST:event_jButton_UPDATE_ActionPerformed
 //del user
     private void jButton_DELETE_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DELETE_ActionPerformed
