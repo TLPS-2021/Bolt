@@ -278,7 +278,7 @@ public class Users_L extends javax.swing.JFrame {
             String fname = jTextField_FULLNAME.getText();
 
             CLASSES.Users user = new CLASSES.Users(null,uname,pass,null,fname);
-            CLASSES.Users.insertUser(user);
+            CLASSES.Users.AddUser(user);
             populateJtable();
         }
         
