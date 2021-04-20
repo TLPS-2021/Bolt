@@ -165,4 +165,32 @@ public class Users {
 
         
     }
+     //user frissitese
+     public static void ModifyUser(Users user)
+    {
+        Connection con = DB_INFO.getConnection();
+        PreparedStatement ps;
+        System.out.println("asd");
+        try {
+            ps = con.prepareStatement("UPDATE `users` SET `username`=?,`password`=?,`fullname`=? WHERE `id`=?");
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getFullname());
+            ps.setInt(4, user.getId());
+            System.out.println("asdasdass");
+
+            if(ps.executeUpdate() != 0){
+                JOptionPane.showMessageDialog(null, "Felhasználó modosítva");
+                
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Hiba történt!");
+                    
+                }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 }
