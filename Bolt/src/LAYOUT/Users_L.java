@@ -296,8 +296,6 @@ public class Users_L extends javax.swing.JFrame {
 
                 CLASSES.Users user = new CLASSES.Users(id,uname,pass,null,fname);
                 CLASSES.Users.ModifyUser(user);
-                System.out.println("gomb");
-                populateJtable();
             }
             
         }
