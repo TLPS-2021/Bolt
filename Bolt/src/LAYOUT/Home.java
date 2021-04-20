@@ -24,13 +24,14 @@ public class Home extends javax.swing.JFrame {
         jLabel_BackgroundImage = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5_USER_ = new javax.swing.JMenu();
+        jMenu5_Category = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         jMenu5_USER_.setBackground(new java.awt.Color(0, 51, 153));
         jMenu5_USER_.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu5_USER_.setText("Felhasználók");
+        jMenu5_USER_.setText("Felhasználók |");
         jMenu5_USER_.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu5_USER_.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jMenu5_USER_.setOpaque(true);
@@ -41,19 +42,36 @@ public class Home extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu5_USER_);
 
+        jMenu5_Category.setBackground(new java.awt.Color(0, 51, 153));
+        jMenu5_Category.setBorder(null);
+        jMenu5_Category.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu5_Category.setText("Kategóriák |");
+        jMenu5_Category.setActionCommand("Kategóriák");
+        jMenu5_Category.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu5_Category.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jMenu5_Category.setOpaque(true);
+        jMenu5_Category.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5_CategoryMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu5_Category);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel_BackgroundImage, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(225, 225, 225)
+                .addComponent(jLabel_BackgroundImage, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel_BackgroundImage, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         pack();
@@ -67,6 +85,15 @@ public class Home extends javax.swing.JFrame {
                 Userp.setLocationRelativeTo(null);
                 Userp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenu5_USER_MouseClicked
+
+    private void jMenu5_CategoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5_CategoryMouseClicked
+        Category_L categoryForm = new Category_L();
+                categoryForm.pack();
+                categoryForm.setVisible(true);
+                categoryForm.setLocationRelativeTo(null);
+                categoryForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+    }//GEN-LAST:event_jMenu5_CategoryMouseClicked
 
     /**
      * @param args the command line arguments
@@ -105,6 +132,7 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel jLabel_BackgroundImage;
+    public javax.swing.JMenu jMenu5_Category;
     public javax.swing.JMenu jMenu5_USER_;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables

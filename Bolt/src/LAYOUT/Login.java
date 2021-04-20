@@ -156,6 +156,7 @@ public class Login extends javax.swing.JFrame {
                 if(rs.getString("user_type").equals("user"))
                 {
                     homeForm.jMenu5_USER_.setVisible(false);
+                    homeForm.jMenu5_Category.setVisible(false);
                 }
                 
                 homeForm.pack();
@@ -164,7 +165,6 @@ public class Login extends javax.swing.JFrame {
                 homeForm.jLabel_BackgroundImage.setPreferredSize(r);
                 homeForm.setVisible(true);
                 
-                homeForm.setLocationRelativeTo(null);
                 homeForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 
                 this.dispose();
