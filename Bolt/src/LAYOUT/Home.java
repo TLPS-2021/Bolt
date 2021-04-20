@@ -10,7 +10,6 @@ public class Home extends javax.swing.JFrame {
     
     public Home() {
         initComponents();
-        initComponents();
 
         ImageIcon imgThisImg = new ImageIcon("src\\idg\\TLPS.png");
 

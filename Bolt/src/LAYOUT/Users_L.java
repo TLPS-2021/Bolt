@@ -19,9 +19,6 @@ import javax.swing.table.JTableHeader;
  */
 public class Users_L extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Users
-     */
      public Users_L() {
         initComponents();
         
