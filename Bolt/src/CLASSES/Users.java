@@ -105,10 +105,9 @@ public class Users {
         }
         return user_list;
     }
-    
-     public static void insertUser(Users user)
+    // user hozzaadasa
+     public static void AddUser(Users user)
     {
-        System.out.println("insert user");
         Connection con = DB_INFO.getConnection();
         PreparedStatement ps;
         
@@ -133,5 +132,37 @@ public class Users {
         } catch (SQLException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+     // user torlese
+     public static void deleteUser(Integer userId)
+    {
+        
+        Connection con = DB_INFO.getConnection();
+        PreparedStatement ps;
+        
+        try {
+            ps = con.prepareStatement("DELETE FROM `users` WHERE `id` = ?");
+
+            ps.setInt(1, userId);
+
+            // Biztosan töröni akarja? hibauzenet
+            int YesOrNo = JOptionPane.showConfirmDialog(null,"Biztosan törölni akarja a felhasználót?","Felhasználó törlése", JOptionPane.YES_NO_OPTION);
+            if(YesOrNo == 0){
+               
+                if(ps.executeUpdate() != 0){
+                   
+                    JOptionPane.showMessageDialog(null, "Felhasználó törölve");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Valami hiba történt!");
+                }
+                
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
     }
 }

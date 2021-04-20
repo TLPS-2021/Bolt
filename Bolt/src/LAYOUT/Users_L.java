@@ -278,7 +278,7 @@ public class Users_L extends javax.swing.JFrame {
             String fname = jTextField_FULLNAME.getText();
 
             CLASSES.Users user = new CLASSES.Users(null,uname,pass,null,fname);
-            CLASSES.Users.insertUser(user);
+            CLASSES.Users.AddUser(user);
             populateJtable();
         }
         
@@ -289,7 +289,14 @@ public class Users_L extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_UPDATE_ActionPerformed
 //del user
     private void jButton_DELETE_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DELETE_ActionPerformed
-     
+        try{
+            Integer id = Integer.valueOf(jTextField_ID.getText());
+            CLASSES.Users.deleteUser(id);
+            populateJtable(); 
+        }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Válasszon ki egy felhasználót!", "Nincs felhasználó kiválasztva!", 1);
+                }
+        
     }//GEN-LAST:event_jButton_DELETE_ActionPerformed
 
     private void jTextField_USERNAMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_USERNAMEActionPerformed
