@@ -14,10 +14,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
+//ads
 public class Category {
     
-    //ads
     Connection connection;
     
     private Integer id;
