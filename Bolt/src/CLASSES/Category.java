@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 public class Category {
     
-    
+    //ads
     Connection connection;
     
     private Integer id;
