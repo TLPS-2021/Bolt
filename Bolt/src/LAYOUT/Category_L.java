@@ -294,11 +294,11 @@ public class Category_L extends javax.swing.JFrame {
                 CLASSES.Category.insertCategory(category);
                 populateJtable();
             }else{
-                JOptionPane.showMessageDialog(null, "Enter The Category Name", "Enter Name", 2);
+                JOptionPane.showMessageDialog(null, "Adja meg a kategória nevét", "Név megadása", 2);
             }
                 
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 2);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Hiba", 2);
         }  
      
     }//GEN-LAST:event_jButton_INSERT_CATEGORY_ActionPerformed
@@ -313,15 +313,23 @@ public class Category_L extends javax.swing.JFrame {
                 populateJtable();
             }
             else{
-                JOptionPane.showMessageDialog(null, "Enter The Category Name", "Enter Name", 2);
+                JOptionPane.showMessageDialog(null, "Adja meg a kategória nevét", "Név megadása", 2);
             }
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "No Category Selected", "Error", 2);
+            JOptionPane.showMessageDialog(null, "Nincs kategória kiválasztva!", "Hiba!", 2);
         }
     }//GEN-LAST:event_jButton_UPDATE_CATEGORY_ActionPerformed
 
     private void jButton_DELETE_CATEGORY_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DELETE_CATEGORY_ActionPerformed
-       
+       try{
+            CLASSES.Category.deleteCategory(Integer.valueOf(jTextField_CATEGORY_ID.getText()));
+            jTextField_CATEGORY_ID.setText("");
+            jTextField_CATEGORY_NAME.setText("");
+            position = 0;
+            populateJtable();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Nincs kategória kiválasztva!", "Hiba!", 2);
+        }
     }//GEN-LAST:event_jButton_DELETE_CATEGORY_ActionPerformed
 
     private void jButton_NEXT_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NEXT_ActionPerformed
@@ -360,7 +368,7 @@ public class Category_L extends javax.swing.JFrame {
                 jTable_CATEGORIES_.setRowSelectionInterval(pos,pos);
             
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error" , 2);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Hiba" , 2);
         }
 
     }
