@@ -327,7 +327,6 @@ public class Category_L extends javax.swing.JFrame {
         {
             return;
         }
-        
         position --;
         navigation(position);
         jTable_CATEGORIES_MouseClicked(null);
