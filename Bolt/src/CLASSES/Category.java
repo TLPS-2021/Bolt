@@ -163,4 +163,33 @@ public class Category {
         }
         
     }
+    public static void deleteCategory(Integer categoryId)
+    {
+        
+        Connection con = DB_INFO.getConnection();
+        PreparedStatement ps;
+        
+        try {
+            ps = con.prepareStatement("DELETE FROM `category` WHERE `id` = ?");
+
+            ps.setInt(1, categoryId);
+
+            int YesOrNo = JOptionPane.showConfirmDialog(null,"Biztosan törölni szeretné a kiválasztott kategóriát?","Törlés", JOptionPane.YES_NO_OPTION);
+            if(YesOrNo == 0){
+                
+               if(ps.executeUpdate() != 0){
+                  JOptionPane.showMessageDialog(null, "Kategória törölve!");
+                }
+               
+                else{
+                    JOptionPane.showMessageDialog(null, "Valami hiba történt!");
+                } 
+                
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
+    }
 }
