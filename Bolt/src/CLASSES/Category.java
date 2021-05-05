@@ -1,7 +1,5 @@
 package CLASSES;
 
-//hi
-
 import CLASSES.DB_INFO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-//ads
+
 public class Category {
     
     Connection connection;
@@ -47,6 +45,97 @@ public class Category {
         this.name = NAME;
     }
     
+    public ArrayList<Category> categoriesList(){
+
+            ArrayList<Category> category_list = new ArrayList<>();
+            connection = DB_INFO.getConnection();
+            ResultSet rs;
+            PreparedStatement ps;
+
+                   String query = "SELECT `id`, `name` FROM `category`";
+
+            try {
+
+                    ps = connection.prepareStatement(query);
+                    rs = ps.executeQuery();
+
+                    Category category;
+
+                    while(rs.next()){
+                        category = new Category(rs.getInt("id"), 
+                                         rs.getString("name")
+                                         );
+
+                        category_list.add(category);
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return category_list;
+
+        }
     
+    public HashMap<String, Integer> populateCombo(){
+
+      HashMap<String, Integer> map = new HashMap<>();
+
+      connection = DB_INFO.getConnection();
+
+      Statement st;
+
+      ResultSet rs;
+
+       try {
+
+           st = connection.createStatement();
+
+           rs = st.executeQuery("SELECT `id`, `name` FROM `category`");
+
+           Category category;
+
+           
+
+           while(rs.next()){
+
+               category = new Category(rs.getInt(1), rs.getString(2));
+
+               map.put(category.getName(), category.getId());
+
+           }
+
+       } catch (SQLException ex) {
+
+           Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+
+       }
+       
+       return map;
+
+   }
   
+    public static void insertCategory(Category category)
+    {
+        Connection con = DB_INFO.getConnection();
+        PreparedStatement ps;
+        
+        try {
+            ps = con.prepareStatement("INSERT INTO `category`(`name`) VALUES (?)");
+
+            ps.setString(1, category.getName());
+
+
+            if(ps.executeUpdate() != 0){
+                JOptionPane.showMessageDialog(null, "New Category Inserted");
+                
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Something Wrong");
+                    
+                }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
