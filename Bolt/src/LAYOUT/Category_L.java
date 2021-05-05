@@ -340,7 +340,6 @@ public class Category_L extends javax.swing.JFrame {
     
     public void navigation(int pos)
     {
-
         try{
                 ArrayList<CLASSES.Category> CategoryList = category.categoriesList();
                 jTextField_CATEGORY_ID.setText(CategoryList.get(pos).getId().toString());
