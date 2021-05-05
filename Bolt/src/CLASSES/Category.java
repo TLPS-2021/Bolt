@@ -126,16 +126,41 @@ public class Category {
 
 
             if(ps.executeUpdate() != 0){
-                JOptionPane.showMessageDialog(null, "New Category Inserted");
+                JOptionPane.showMessageDialog(null, "Új kategória hozzáadva");
                 
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Something Wrong");
+                    JOptionPane.showMessageDialog(null, "Valami hiba történt!");
                     
                 }
             
         } catch (SQLException ex) {
             Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public static void updateCategory(Category category)
+    {
+        Connection con = DB_INFO.getConnection();
+        PreparedStatement ps;
+        
+        try {
+            ps = con.prepareStatement("UPDATE `category` SET `name`=? WHERE `id` = ?");
+
+            ps.setString(1, category.getName());
+            ps.setInt(2, category.getId());
+
+            if(ps.executeUpdate() != 0){
+                JOptionPane.showMessageDialog(null, "Kategória módosítva");
+                
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Valami hiba történt!");
+                    
+                }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }

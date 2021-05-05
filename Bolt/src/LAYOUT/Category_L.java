@@ -28,7 +28,7 @@ public class Category_L extends javax.swing.JFrame {
     CLASSES.Category category = new CLASSES.Category();
     public Category_L() {
        initComponents();
-        
+        populateJtable();
         try{
             jTable_CATEGORIES_MouseClicked(null);
         }catch(Exception ex){
@@ -304,7 +304,20 @@ public class Category_L extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_INSERT_CATEGORY_ActionPerformed
 
     private void jButton_UPDATE_CATEGORY_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UPDATE_CATEGORY_ActionPerformed
-      
+      try{
+        
+            if(!jTextField_CATEGORY_NAME.getText().equals(""))
+            {
+                category = new CLASSES.Category(Integer.valueOf(jTextField_CATEGORY_ID.getText()),jTextField_CATEGORY_NAME.getText());
+                CLASSES.Category.updateCategory(category);
+                populateJtable();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Enter The Category Name", "Enter Name", 2);
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "No Category Selected", "Error", 2);
+        }
     }//GEN-LAST:event_jButton_UPDATE_CATEGORY_ActionPerformed
 
     private void jButton_DELETE_CATEGORY_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DELETE_CATEGORY_ActionPerformed
