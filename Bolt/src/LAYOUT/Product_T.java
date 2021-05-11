@@ -165,7 +165,7 @@ public class Product_T extends javax.swing.JFrame {
     
     private void jButton_CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CANCELActionPerformed
         
-        
+        System.exit(0);
         
     }//GEN-LAST:event_jButton_CANCELActionPerformed
 
