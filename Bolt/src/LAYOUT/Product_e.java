@@ -16,8 +16,10 @@ import javax.swing.JOptionPane;
 public class Product_e extends javax.swing.JFrame {
 
     public Product_e() {
-      
+        initComponents();
+        BindCombo();
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -177,6 +179,20 @@ public class Product_e extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void BindCombo(){
+
+        CLASSES.Category category = new CLASSES.Category();
+
+        HashMap<String, Integer> map = category.populateCombo();
+
+        for(String s : map.keySet()){
+
+            jComboBox1.addItem(s);
+
+        }
+
+    }
+    
     private void jButton_CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CANCELActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton_CANCELActionPerformed
@@ -193,7 +209,25 @@ public class Product_e extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-  
+  public boolean verifFields()
+    {
+     
+        if(jTextField_Quantity.getText().equals("") || jTextField_Price.getText().equals("") || jTextField_Name.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Egy vagy tobb mező üres!", "Minden mező üres!", 0);
+            return false;
+        }
+        else{
+            try{
+                Integer.valueOf(jTextField_Quantity.getText());
+                Double.valueOf(jTextField_Price.getText());
+                return true;
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Érvénytelen érték", 0);
+                return false;
+            }
+        }
+    }
      public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
