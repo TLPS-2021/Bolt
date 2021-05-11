@@ -193,7 +193,11 @@ public class PRODUCTS_a extends javax.swing.JFrame {
     
     
     private void jButton_INSERT_PRODUCT_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_INSERT_PRODUCT_ActionPerformed
-     
+              Product_T addProductForm = new Product_T();
+                addProductForm.pack();
+                addProductForm.setVisible(true);
+                addProductForm.setLocationRelativeTo(null);
+                addProductForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton_INSERT_PRODUCT_ActionPerformed
 
     
