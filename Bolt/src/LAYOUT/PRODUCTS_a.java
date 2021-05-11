@@ -219,7 +219,7 @@ public class PRODUCTS_a extends javax.swing.JFrame {
             Integer id = Integer.valueOf(jTable_Products.getValueAt(rowIndex, 0).toString());
             
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Válassz ki egy terméket a táblából!", "Nincs kiválasztott termék", 2);
+            JOptionPane.showMessageDialog(null, "Válassz ki egy terméket a táblából!", "Nincs kiválasztott termék!", 2);
         }
     }//GEN-LAST:event_jButton_DELETE_PRODUCT_ActionPerformed
 
