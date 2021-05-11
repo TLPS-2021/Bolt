@@ -70,7 +70,7 @@ public class Product {
 
            
                 try {
-                ps = con.prepareStatement("UPDATE `product` SET `name`=?,`quantity`=?,`price`=?,`category_id`=?,`description`=? WHERE `id` = ?");
+                ps = con.prepareStatement("UPDATE `product` SET `name`=?,`quantity`=?,`price`=?,`category_id`=?,`place`=? WHERE `id` = ?");
 
                 ps.setString(1, product.getName());
                 ps.setInt(2, product.getQuantity());
