@@ -14,17 +14,21 @@ import javax.swing.JOptionPane;
 
 
 public class Product_e extends javax.swing.JFrame {
-
+    
+    public Integer productId;
+    
     public Product_e() {
-      
+        initComponents();
+        BindCombo();
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField_Description = new javax.swing.JTextField();
+        jTextField_Place = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField_Price = new javax.swing.JTextField();
@@ -44,7 +48,7 @@ public class Product_e extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Raktárhely:");
 
-        jTextField_Description.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField_Place.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,7 +115,7 @@ public class Product_e extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField_Description, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField_Place, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -155,7 +159,7 @@ public class Product_e extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField_Description, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_Place, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,23 +181,77 @@ public class Product_e extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void BindCombo(){
+
+        CLASSES.Category category = new CLASSES.Category();
+
+        HashMap<String, Integer> map = category.populateCombo();
+
+        for(String s : map.keySet()){
+
+            jComboBox1.addItem(s);
+
+        }
+
+    }
+    
     private void jButton_CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CANCELActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton_CANCELActionPerformed
 
     private void jButton_EDIT_PRODUCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EDIT_PRODUCTActionPerformed
+        CLASSES.Product product;
+        CLASSES.Category category = new CLASSES.Category();
+
+        HashMap<String, Integer> map = category.populateCombo();
+
+        String name = jTextField_Name.getText();
+        String price;
+        String place = jTextField_Place.getText();
+        Integer quantity;
+        Integer catId;
+
+             if(verifFields())
+                    {
+                        quantity = Integer.valueOf(jTextField_Quantity.getText());
+                        catId = map.get(jComboBox1.getSelectedItem().toString());
+                        price = jTextField_Price.getText();
+
+                        product = new CLASSES.Product(productId,name,catId,price,quantity,place,null);
+                        CLASSES.Product.updateProduct(product);
+                    }
         
     }//GEN-LAST:event_jButton_EDIT_PRODUCTActionPerformed
 
     private void jTextField_QuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_QuantityKeyTyped
-
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextField_QuantityKeyTyped
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-  
+  public boolean verifFields()
+    {
+     
+        if(jTextField_Quantity.getText().equals("") || jTextField_Price.getText().equals("") || jTextField_Name.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Egy vagy több mező üres!", "Minden mező üres!", 0);
+            return false;
+        }
+        else{
+            try{
+                Integer.valueOf(jTextField_Quantity.getText());
+                Double.valueOf(jTextField_Price.getText());
+                return true;
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Érvénytelen érték", 0);
+                return false;
+            }
+        }
+    }
      public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -231,16 +289,16 @@ public class Product_e extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_CANCEL;
     private javax.swing.JButton jButton_EDIT_PRODUCT;
-    private javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField_Description;
-    private javax.swing.JTextField jTextField_Name;
-    private javax.swing.JTextField jTextField_Price;
-    private javax.swing.JTextField jTextField_Quantity;
+    public javax.swing.JTextField jTextField_Name;
+    public javax.swing.JTextField jTextField_Place;
+    public javax.swing.JTextField jTextField_Price;
+    public javax.swing.JTextField jTextField_Quantity;
     // End of variables declaration//GEN-END:variables
 }
