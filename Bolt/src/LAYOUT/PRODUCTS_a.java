@@ -13,6 +13,7 @@ import javax.swing.table.JTableHeader;
 
 
 public class PRODUCTS_a extends javax.swing.JFrame {
+    public Integer productId;
   
     public PRODUCTS_a() {
         
@@ -23,6 +24,7 @@ public class PRODUCTS_a extends javax.swing.JFrame {
         jTable_Products.setShowGrid(true);
         
         jTable_Products.setGridColor(Color.YELLOW);
+        
         
         jTable_Products.setSelectionBackground(Color.gray);
         
@@ -208,7 +210,30 @@ public class PRODUCTS_a extends javax.swing.JFrame {
     
     
     private void jButton_UPDATE_PRODUCT_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UPDATE_PRODUCT_ActionPerformed
-       
+       try{
+
+            
+            Product_e editProductForm = new Product_e();
+
+            Integer rowIndex = jTable_Products.getSelectedRow();
+
+            editProductForm.productId = Integer.valueOf(jTable_Products.getValueAt(rowIndex, 0).toString());
+            editProductForm.jTextField_Name.setText(jTable_Products.getValueAt(rowIndex, 1).toString());
+            editProductForm.jTextField_Price.setText(jTable_Products.getValueAt(rowIndex, 2).toString());
+            editProductForm.jTextField_Quantity.setText(jTable_Products.getValueAt(rowIndex, 3).toString());
+            editProductForm.jTextField_Place.setText(jTable_Products.getValueAt(rowIndex, 4).toString());
+
+            editProductForm.jComboBox1.setSelectedItem(jTable_Products.getValueAt(rowIndex, 5));
+
+          
+
+            editProductForm.setVisible(true);
+                    editProductForm.pack();
+                    editProductForm.setLocationRelativeTo(null);
+                    editProductForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        }catch(Exception Ex){
+            JOptionPane.showMessageDialog(null, "A tábláből kell terméket kiválasztania!", "Nincs kiválasztott termék!", 2);
+        }
     }//GEN-LAST:event_jButton_UPDATE_PRODUCT_ActionPerformed
 
     
