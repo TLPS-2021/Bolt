@@ -34,6 +34,35 @@ public class Product {
         this.place = DESCRIPTION;
         this.category = categoryName;
     }
+   
+   public static void insertProduct(Product product)
+    {
+        Connection con = DB_INFO.getConnection();
+        PreparedStatement ps;
+        
+        try {
+            ps = con.prepareStatement("INSERT INTO `product`(`name`, `quantity`, `price`, `category_id`, `place`) VALUES (?,?,?,?,?)");
+
+            ps.setString(1, product.getName());
+            ps.setInt(2, product.getQuantity());
+            ps.setString(3, product.getPrice());
+            ps.setInt(4, product.getCategory_id());
+            ps.setString(5, product.getPlace());
+
+            if(ps.executeUpdate() != 0){
+                JOptionPane.showMessageDialog(null, "Új termék hozzáadva");
+                
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Valami hiba történt!");
+                    
+                }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
 
 
