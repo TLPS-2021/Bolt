@@ -84,6 +84,42 @@ public class Product {
         
     }
     
+    public ArrayList<Product> productsInCategoryList(Integer categoryId){
+        
+        ArrayList<Product> product_list = new ArrayList<>();
+        connection = DB_INFO.getConnection();
+        ResultSet rs;
+        PreparedStatement ps;
+        
+               String query = "SELECT product.id, product.name,category_id, quantity, price, place FROM product WHERE category_id = ?";
+        
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, categoryId);
+            rs = ps.executeQuery();
+           
+            Product prd;
+            
+            while(rs.next()){
+                prd = new Product(rs.getInt("id"), 
+                                 rs.getString("name"), 
+                                 rs.getInt("category_id"),
+                                 rs.getString("price"),
+                                 rs.getInt("quantity"),
+                                 rs.getString("place"),
+                                 null
+                                 );
+                
+                product_list.add(prd);
+            }
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return product_list;
+        
+    }
+    
      public Integer getId() {
         return id;
     }
