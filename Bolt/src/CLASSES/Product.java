@@ -18,17 +18,20 @@ public class Product {
     private Integer category_id;
     private String price;
     private Integer quantity;
+    private String description ;
     private String category;
 
     public Product() {
     }
 
-    public Product(Integer ID, String NAME, Integer CATEGORY_ID, String PRICE, Integer QUANTITY, String categoryName) {
+   public Product(Integer ID, String NAME, Integer CATEGORY_ID, String PRICE, byte[] PICTURE, Integer QUANTITY, String DESCRIPTION,String categoryName)
+    {
         this.id = ID;
         this.name = NAME;
         this.category_id = CATEGORY_ID;
         this.price = PRICE;
         this.quantity = QUANTITY;
+        this.description = DESCRIPTION;
         this.category = categoryName;
     }
 
@@ -75,6 +78,13 @@ public class Product {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }
