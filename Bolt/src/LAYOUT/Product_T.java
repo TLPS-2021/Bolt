@@ -212,7 +212,9 @@ public class Product_T extends javax.swing.JFrame {
     
     private void jTextField_QuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_QuantityKeyTyped
        
-       
+       if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextField_QuantityKeyTyped
  
     
