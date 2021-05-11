@@ -156,6 +156,7 @@ public class Login extends javax.swing.JFrame {
                 {
                     homeForm.jMenu5_USER_.setVisible(false);
                     homeForm.jMenu5_Category.setVisible(false);
+                    homeForm.jMenu5_Prod_a.setVisible(false);
                 }
                 
                 homeForm.pack();
