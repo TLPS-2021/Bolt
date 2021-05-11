@@ -53,14 +53,9 @@ public class CategoryTest {
            
         
         
-        System.out.println("asd");
         Category category = new Category(ID, NAME);
         Category.insertCategory(category);
-        
-        System.out.println("asd2");
         Category expected = getCategoryByName(NAME);
-        
-        System.out.println("asd3");
         assertNotNull(expected);
     }
     
