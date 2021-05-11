@@ -202,7 +202,9 @@ public class Product_e extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_EDIT_PRODUCTActionPerformed
 
     private void jTextField_QuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_QuantityKeyTyped
-
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextField_QuantityKeyTyped
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -214,7 +216,7 @@ public class Product_e extends javax.swing.JFrame {
      
         if(jTextField_Quantity.getText().equals("") || jTextField_Price.getText().equals("") || jTextField_Name.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "Egy vagy tobb mező üres!", "Minden mező üres!", 0);
+            JOptionPane.showMessageDialog(null, "Egy vagy több mező üres!", "Minden mező üres!", 0);
             return false;
         }
         else{
