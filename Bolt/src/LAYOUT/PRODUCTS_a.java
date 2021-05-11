@@ -198,7 +198,7 @@ public class PRODUCTS_a extends javax.swing.JFrame {
 
     
     private void jButton_SEARCH_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SEARCH_ActionPerformed
-  
+   populateJtable(jTextField_VALUE_TO_SEARCH.getText());
     }//GEN-LAST:event_jButton_SEARCH_ActionPerformed
 
     
