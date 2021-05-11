@@ -66,7 +66,21 @@ public class Category_L extends javax.swing.JFrame {
         jTable_CATEGORIES_.setModel(model);
         jTable_CATEGORIES_.setRowHeight(45);
     }
-    
+    public void populateProductsList(Integer categoryId){
+        
+        CLASSES.Product prd = new CLASSES.Product();
+
+        ArrayList<CLASSES.Product> ProductList = prd.productsInCategoryList(categoryId);
+          DefaultListModel model = new DefaultListModel(); 
+        
+        for(int i = 0; i < ProductList.size(); i++){
+            
+          model.addElement(ProductList.get(i).getName());
+
+        }
+        jList_PRODUCTS_IN_CATEGORY.setModel(model);
+
+    }
      
     
 /**
@@ -354,8 +368,40 @@ public class Category_L extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_PREVIOUS_ActionPerformed
 
     private void jButton_SHOW_PRODUCTS_IN_CATEGORYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SHOW_PRODUCTS_IN_CATEGORYActionPerformed
-      
+      try{
         
+            PROD_FROM_CAT productsInCategoryForm = new PROD_FROM_CAT();
+            CLASSES.Product prd = new CLASSES.Product();
+            Integer categoryId = Integer.valueOf(jTable_CATEGORIES_.getValueAt(jTable_CATEGORIES_.getSelectedRow(),0).toString());
+            ArrayList<CLASSES.Product> ProductList = prd.productsInCategoryList(categoryId);
+
+            String[] colNames = {"Azonosító","Név","Ár","Mennyiség","Raktárhely","Kategória"};
+            Object[][] rows = new Object[ProductList.size()][7];
+
+            for(int i = 0; i < ProductList.size(); i++){
+                rows[i][0] = ProductList.get(i).getId();
+                rows[i][1] = ProductList.get(i).getName();
+                rows[i][5] = ProductList.get(i).getCategory_id();
+                rows[i][2] = ProductList.get(i).getPrice();
+                rows[i][3] = ProductList.get(i).getQuantity();
+                rows[i][4] = ProductList.get(i).getPlace();
+            }
+
+            DefaultTableModel mmd = new DefaultTableModel(rows, colNames);
+            productsInCategoryForm.jTable_PRODUCTS_IN_CATEGORY.setModel(mmd);
+            productsInCategoryForm.jTable_PRODUCTS_IN_CATEGORY.setRowHeight(80);
+            productsInCategoryForm.jTable_PRODUCTS_IN_CATEGORY.getColumnModel().getColumn(5).setPreferredWidth(150);
+            productsInCategoryForm.jTable_PRODUCTS_IN_CATEGORY.getColumnModel().getColumn(4).setPreferredWidth(120);
+            productsInCategoryForm.jLabel_CATEGORY_NAME.setText(" Termékek az adott kategóriában :  " + jTable_CATEGORIES_.getValueAt(jTable_CATEGORIES_.getSelectedRow(),1).toString());
+            productsInCategoryForm.setVisible(true);
+            productsInCategoryForm.pack();
+            productsInCategoryForm.setLocationRelativeTo(null);
+            productsInCategoryForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+            
+        }catch(Exception ex){
+             JOptionPane.showMessageDialog(null, "Válasszon ki egy kategóriát", "Nincs kategória kiválasztva", 2);
+        }
     }//GEN-LAST:event_jButton_SHOW_PRODUCTS_IN_CATEGORYActionPerformed
     
     
