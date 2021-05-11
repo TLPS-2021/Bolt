@@ -11,7 +11,7 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
 
-        ImageIcon imgThisImg = new ImageIcon("src\\IDG\\TLPS.png");     
+        ImageIcon imgThisImg = new ImageIcon("src\\IDG\\Inventory.jpg");     
 
         jLabel_BackgroundImage.setIcon(imgThisImg);
     }
