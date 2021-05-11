@@ -146,6 +146,46 @@ public class PRODUCTS_a extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public PRODUCTS_a() {
+        
+        initComponents();
+       
+        populateJtable("");
+        
+        jTable_Products.setShowGrid(true);
+        
+        jTable_Products.setGridColor(Color.YELLOW);
+        
+        jTable_Products.setSelectionBackground(Color.gray);
+        
+        JTableHeader th = jTable_Products.getTableHeader();
+
+        th.setFont(new Font("Tahoma", Font.PLAIN, 16));
+    }
+    
+    public void populateJtable(String val){
+        
+        CLASSES.Product prd = new CLASSES.Product();
+        ArrayList<CLASSES.Product> ProductList = prd.productsList(val);
+        
+        String[] colNames = {"Id","Name","Price","Quantity","Description","Category"};
+        Object[][] rows = new Object[ProductList.size()][7];
+        
+        for(int i = 0; i < ProductList.size(); i++){
+            rows[i][0] = ProductList.get(i).getId();
+            rows[i][1] = ProductList.get(i).getName();
+            rows[i][2] = ProductList.get(i).getPrice();
+            rows[i][3] = ProductList.get(i).getQuantity();
+            //rows[i][4] = ProductList.get(i).getDescription();
+            rows[i][5] = ProductList.get(i).getCategoryName(ProductList.get(i).getId());
+
+        }
+        
+        //jTable_Products.setModel(mmd);
+        jTable_Products.setRowHeight(80);
+        jTable_Products.getColumnModel().getColumn(5).setPreferredWidth(150);
+        jTable_Products.getColumnModel().getColumn(4).setPreferredWidth(120);
+    }
     
     private void jButton_INSERT_PRODUCT_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_INSERT_PRODUCT_ActionPerformed
      
