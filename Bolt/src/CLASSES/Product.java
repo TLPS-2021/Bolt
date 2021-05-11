@@ -64,8 +64,37 @@ public class Product {
 
     }
 
+    public static void updateProduct(Product product){
+            Connection con = DB_INFO.getConnection();
+            PreparedStatement ps;
 
+           
+                try {
+                ps = con.prepareStatement("UPDATE `product` SET `name`=?,`quantity`=?,`price`=?,`category_id`=?,`description`=? WHERE `id` = ?");
 
+                ps.setString(1, product.getName());
+                ps.setInt(2, product.getQuantity());
+                ps.setString(3, product.getPrice());
+                ps.setInt(4, product.getCategory_id());
+                ps.setString(5, product.getPlace());
+                ps.setInt(6, product.getId());
+
+                if(ps.executeUpdate() != 0){
+                    JOptionPane.showMessageDialog(null, "Termék frissítve");
+
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Valami hiba történt!");
+
+                    }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+        
+        
 
     public ArrayList<Product> productsList(String val){
         
