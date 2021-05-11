@@ -24,14 +24,14 @@ public class Product {
     public Product() {
     }
 
-   public Product(Integer ID, String NAME, Integer CATEGORY_ID, String PRICE, Integer QUANTITY, String DESCRIPTION,String categoryName)
+   public Product(Integer ID, String NAME, Integer CATEGORY_ID, String PRICE, Integer QUANTITY, String PLACE,String categoryName)
     {
         this.id = ID;
         this.name = NAME;
         this.category_id = CATEGORY_ID;
         this.price = PRICE;
         this.quantity = QUANTITY;
-        this.place = DESCRIPTION;
+        this.place = PLACE;
         this.category = categoryName;
     }
    

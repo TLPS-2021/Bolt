@@ -16,6 +16,7 @@ public class Product_T extends javax.swing.JFrame {
     
     public Product_T() {
         initComponents();
+        BindCombo();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -186,20 +187,14 @@ public class Product_T extends javax.swing.JFrame {
         String place = jTextField_Place.getText();
         Integer quantity;
         Integer catId;
-            if(verifFields())
-            {
-                quantity = Integer.valueOf(jTextField_Quantity.getText());
-                
-                // get the category id
-                catId = map.get(jComboBox1.getSelectedItem().toString());
-                price = jTextField_Price.getText();
-
-                 product = new CLASSES.Product(null,name,catId,price,quantity,place,null);
-
-                 CLASSES.Product.insertProduct(product);
-            }
-        
-
+        if(verifFields())
+        {
+            quantity = Integer.valueOf(jTextField_Quantity.getText());
+            catId = map.get(jComboBox1.getSelectedItem().toString());
+            price = jTextField_Price.getText();
+            product = new CLASSES.Product(null,name,catId,price,quantity,place,null);
+            CLASSES.Product.insertProduct(product);
+        }
     }//GEN-LAST:event_jButton_ADD_PRODUCTActionPerformed
 
     
@@ -217,7 +212,19 @@ public class Product_T extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField_QuantityKeyTyped
  
-    
+    public void BindCombo(){
+
+        CLASSES.Category category = new CLASSES.Category();
+
+        HashMap<String, Integer> map = category.populateCombo();
+
+        for(String s : map.keySet()){
+
+            jComboBox1.addItem(s);
+
+        }
+
+    }
     public boolean verifFields()
     {
      
