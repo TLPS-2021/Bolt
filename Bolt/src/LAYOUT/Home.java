@@ -25,6 +25,8 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5_USER_ = new javax.swing.JMenu();
         jMenu5_Category = new javax.swing.JMenu();
+        jMenu5_Prod_a = new javax.swing.JMenu();
+        jMenu5_Prod_u = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -56,6 +58,36 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(jMenu5_Category);
+
+        jMenu5_Prod_a.setBackground(new java.awt.Color(0, 51, 153));
+        jMenu5_Prod_a.setBorder(null);
+        jMenu5_Prod_a.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu5_Prod_a.setText("Termékek_A |");
+        jMenu5_Prod_a.setActionCommand("Prod_a");
+        jMenu5_Prod_a.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu5_Prod_a.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jMenu5_Prod_a.setOpaque(true);
+        jMenu5_Prod_a.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5_Prod_a1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu5_Prod_a);
+
+        jMenu5_Prod_u.setBackground(new java.awt.Color(0, 51, 153));
+        jMenu5_Prod_u.setBorder(null);
+        jMenu5_Prod_u.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu5_Prod_u.setText("Termékek_u |");
+        jMenu5_Prod_u.setActionCommand("Prod_u");
+        jMenu5_Prod_u.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu5_Prod_u.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jMenu5_Prod_u.setOpaque(true);
+        jMenu5_Prod_u.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5_Prod_uMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu5_Prod_u);
 
         setJMenuBar(jMenuBar1);
 
@@ -95,6 +127,24 @@ public class Home extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenu5_CategoryMouseClicked
 
+    private void jMenu5_Prod_a1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5_Prod_a1MouseClicked
+        // TODO add your handling code here:
+        PRODUCTS_a productForm = new PRODUCTS_a();
+                productForm.pack();
+                productForm.setVisible(true);
+                productForm.setLocationRelativeTo(null);
+                productForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenu5_Prod_a1MouseClicked
+
+    private void jMenu5_Prod_uMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5_Prod_uMouseClicked
+        // TODO add your handling code here:
+        PRODUCTS_u productForm = new PRODUCTS_u();
+                productForm.pack();
+                productForm.setVisible(true);
+                productForm.setLocationRelativeTo(null);
+                productForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenu5_Prod_uMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -133,6 +183,8 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel jLabel_BackgroundImage;
     public javax.swing.JMenu jMenu5_Category;
+    public javax.swing.JMenu jMenu5_Prod_a;
+    public javax.swing.JMenu jMenu5_Prod_u;
     public javax.swing.JMenu jMenu5_USER_;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
