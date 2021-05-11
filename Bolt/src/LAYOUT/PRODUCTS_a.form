@@ -139,7 +139,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Remove Selected Product"/>
+            <Property name="text" type="java.lang.String" value="Kiv&#xe1;lasztott term&#xe9;k t&#xf6;rl&#xe9;se"/>
             <Property name="actionCommand" type="java.lang.String" value="Kiv&#xe1;lasztott term&#xe9;k t&#xf6;rl&#xe9;se"/>
           </Properties>
           <Events>

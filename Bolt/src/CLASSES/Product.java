@@ -18,25 +18,73 @@ public class Product {
     private Integer category_id;
     private String price;
     private Integer quantity;
-    private String description ;
+    private String place ;
     private String category;
 
     public Product() {
     }
 
-   public Product(Integer ID, String NAME, Integer CATEGORY_ID, String PRICE, byte[] PICTURE, Integer QUANTITY, String DESCRIPTION,String categoryName)
+   public Product(Integer ID, String NAME, Integer CATEGORY_ID, String PRICE, Integer QUANTITY, String DESCRIPTION,String categoryName)
     {
         this.id = ID;
         this.name = NAME;
         this.category_id = CATEGORY_ID;
         this.price = PRICE;
         this.quantity = QUANTITY;
-        this.description = DESCRIPTION;
+        this.place = DESCRIPTION;
         this.category = categoryName;
     }
 
 
-    public Integer getId() {
+
+
+    public ArrayList<Product> productsList(String val){
+        
+        ArrayList<Product> product_list = new ArrayList<>();
+        connection = DB_INFO.getConnection();
+        ResultSet rs;
+        PreparedStatement ps;
+        
+        String query = "SELECT product.id, product.name,category_id, quantity, price, place,category.name as 'category'\n" +
+        "  FROM product\n" +
+        "INNER JOIN category ON category.id = product.category_id\n" +
+        "WHERE\n" +
+        "CONCAT(\n" +
+        "Convert(product.id , char(11)), product.name,\n" +
+        "Convert(quantity , char(11)), price,\n" +
+        "place, category.name\n" +
+        ")\n" +
+        "LIKE ?;";
+               
+        
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, "%" + val + "%");
+            rs = ps.executeQuery();
+           
+            Product prd;
+            
+            while(rs.next()){
+                prd = new Product(rs.getInt("id"), 
+                                 rs.getString("name"), 
+                                 rs.getInt("category_id"),
+                                 rs.getString("price"),
+                                 rs.getInt("quantity"),
+                                 rs.getString("place"),
+                                 rs.getString("category")
+                                 );
+                
+                product_list.add(prd);
+            }
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return product_list;
+        
+    }
+    
+     public Integer getId() {
         return id;
     }
 
@@ -79,12 +127,11 @@ public class Product {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-    public String getDescription() {
-        return description;
+    public String getPlace() {
+        return place;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPlace(String place) {
+        this.place = place;
     }
-
 }
