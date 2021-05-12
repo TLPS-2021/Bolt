@@ -95,7 +95,7 @@ public class Users_L extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ID:");
+        jLabel1.setText("Azonosító:");
 
         jTextField_ID.setEditable(false);
         jTextField_ID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

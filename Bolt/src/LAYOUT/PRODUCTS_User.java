@@ -80,6 +80,8 @@ public class PRODUCTS_User extends javax.swing.JFrame {
         jButton_NEG_PRODUCT1 = new javax.swing.JButton();
         jTextField_Quantity = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel_Form_Title = new javax.swing.JLabel();
+        jLabel_Form_Title1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
@@ -120,9 +122,10 @@ public class PRODUCTS_User extends javax.swing.JFrame {
         });
 
         jButton_ADD_PRODUCT.setBackground(new java.awt.Color(0, 255, 0));
-        jButton_ADD_PRODUCT.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jButton_ADD_PRODUCT.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jButton_ADD_PRODUCT.setForeground(new java.awt.Color(255, 255, 255));
         jButton_ADD_PRODUCT.setText("+");
+        jButton_ADD_PRODUCT.setToolTipText("Valami");
         jButton_ADD_PRODUCT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton_ADD_PRODUCTMouseClicked(evt);
@@ -130,7 +133,7 @@ public class PRODUCTS_User extends javax.swing.JFrame {
         });
 
         jButton_NEG_PRODUCT1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton_NEG_PRODUCT1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jButton_NEG_PRODUCT1.setFont(new java.awt.Font("Ebrima", 1, 48)); // NOI18N
         jButton_NEG_PRODUCT1.setForeground(new java.awt.Color(255, 255, 255));
         jButton_NEG_PRODUCT1.setText("-");
         jButton_NEG_PRODUCT1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -150,6 +153,24 @@ public class PRODUCTS_User extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Mennyiség:");
 
+        jLabel_Form_Title.setBackground(new java.awt.Color(0, 51, 153));
+        jLabel_Form_Title.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel_Form_Title.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Form_Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Form_Title.setText("kezelőfelület");
+        jLabel_Form_Title.setToolTipText("");
+        jLabel_Form_Title.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel_Form_Title.setOpaque(true);
+
+        jLabel_Form_Title1.setBackground(new java.awt.Color(0, 51, 153));
+        jLabel_Form_Title1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel_Form_Title1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Form_Title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Form_Title1.setText("Dolgozói");
+        jLabel_Form_Title1.setToolTipText("");
+        jLabel_Form_Title1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel_Form_Title1.setOpaque(true);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -157,15 +178,23 @@ public class PRODUCTS_User extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_Form_Title1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel_Form_Title, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addComponent(jButton_ADD_PRODUCT)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                        .addComponent(jButton_NEG_PRODUCT1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton_NEG_PRODUCT1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
                         .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField_Quantity)))
-                .addGap(26, 26, 26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField_Quantity, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                        .addGap(11, 11, 11)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextField_VALUE_TO_SEARCH, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,24 +208,28 @@ public class PRODUCTS_User extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_SEARCH_)
-                    .addComponent(jTextField_VALUE_TO_SEARCH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_REFRESH_))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton_SEARCH_)
+                            .addComponent(jTextField_VALUE_TO_SEARCH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_REFRESH_))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addContainerGap()
+                        .addComponent(jLabel_Form_Title1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel_Form_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jTextField_Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60)
+                        .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton_ADD_PRODUCT)
-                            .addComponent(jButton_NEG_PRODUCT1))))
+                            .addComponent(jButton_NEG_PRODUCT1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -326,6 +359,8 @@ public class PRODUCTS_User extends javax.swing.JFrame {
     private javax.swing.JButton jButton_REFRESH_;
     private javax.swing.JButton jButton_SEARCH_;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel_Form_Title;
+    private javax.swing.JLabel jLabel_Form_Title1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_Products;

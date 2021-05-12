@@ -59,7 +59,7 @@ public class Category_L extends javax.swing.JFrame {
         
         ArrayList<CLASSES.Category> CategoryList = category.categoriesList();
         
-        String[] colNames = {"Id","Name"};
+        String[] colNames = {"Azonosító","Név"};
         Object[][] rows = new Object[CategoryList.size()][2];
         DefaultTableModel model = (DefaultTableModel) jTable_CATEGORIES_.getModel();
         
