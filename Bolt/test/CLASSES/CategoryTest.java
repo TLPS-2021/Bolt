@@ -17,7 +17,7 @@ import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Order;
 import org.junit.runners.MethodSorters;
 
-@FixMethodOrder(MethodSorters.JVM)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 /**
  *
  * @author levai
@@ -46,10 +46,12 @@ public class CategoryTest {
     }
 
     String NAME = "ruha";
+    String NAME2 = "ruha2";
+    
     int ID = 5;
     
     @Test
-    public void testInsertCategory() {
+    public void A_testInsertCategory() {
            
         
         
@@ -60,7 +62,16 @@ public class CategoryTest {
     }
     
     @Test
-    public void DelCategory() {
+    public void B_testUpdateCategory() {
+
+        Category category = new Category(ID, NAME2);
+        Category.updateCategory(category);
+        Category expected = getCategoryByName(NAME);
+        assertNotNull(expected);
+    }
+    
+    @Test
+    public void C_DelCategory() {
         
         Category cat = getCategoryByName(NAME);
         assertNotNull(cat);
