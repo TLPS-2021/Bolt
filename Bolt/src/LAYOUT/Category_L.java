@@ -1,9 +1,16 @@
 package LAYOUT;
 
+import CLASSES.DB_INFO;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -309,33 +316,93 @@ public class Category_L extends javax.swing.JFrame {
         try{
             if(!jTextField_CATEGORY_NAME.getText().equals(""))
             {
-                category = new CLASSES.Category(null,jTextField_CATEGORY_NAME.getText());
-                CLASSES.Category.insertCategory(category);
-                populateJtable();
+
+                String name = jTextField_CATEGORY_NAME.getText();
+
+                Connection con = DB_INFO.getConnection();
+                ResultSet rs;
+                PreparedStatement ps;
+                String query = "SELECT name FROM category";
+
+                ArrayList<String> catname = new ArrayList<>();
+
+                try {
+
+                    ps = con.prepareStatement(query);
+                    rs = ps.executeQuery();
+
+                    while(rs.next()){
+                       String tmp = rs.getString("name");
+                       catname.add(tmp);
+                   }
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(Users_L.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                boolean contains = catname.contains(name);
+                if(!contains){
+                    category = new CLASSES.Category(null,jTextField_CATEGORY_NAME.getText());
+                    CLASSES.Category.insertCategory(category);
+                    populateJtable();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Már van ilyen nevű kategória!", "Nincs kategória kiválasztva", 1);
+                }
+
             }else{
                 JOptionPane.showMessageDialog(null, "Adja meg a kategória nevét", "Név megadása", 2);
             }
-                
+
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Hiba", 2);
-        }  
-     
+        }
     }//GEN-LAST:event_jButton_INSERT_CATEGORY_ActionPerformed
 
     private void jButton_UPDATE_CATEGORY_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UPDATE_CATEGORY_ActionPerformed
       try{
-        
             if(!jTextField_CATEGORY_NAME.getText().equals(""))
             {
-                category = new CLASSES.Category(Integer.valueOf(jTextField_CATEGORY_ID.getText()),jTextField_CATEGORY_NAME.getText());
-                CLASSES.Category.updateCategory(category);
-                populateJtable();
-            }
-            else{
+
+                String name = jTextField_CATEGORY_NAME.getText();
+
+                Connection con = DB_INFO.getConnection();
+                ResultSet rs;
+                PreparedStatement ps;
+                String query = "SELECT name FROM category";
+
+                ArrayList<String> catname = new ArrayList<>();
+
+                try {
+
+                    ps = con.prepareStatement(query);
+                    rs = ps.executeQuery();
+
+                    while(rs.next()){
+                       String tmp = rs.getString("name");
+                       catname.add(tmp);
+                   }
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(Users_L.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                boolean contains = catname.contains(name);
+                if(!contains){
+                    category = new CLASSES.Category(null,jTextField_CATEGORY_NAME.getText());
+                    CLASSES.Category.updateCategory(category);
+                    populateJtable();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Már van ilyen nevű kategória!", "Nincs kategória kiválasztva", 1);
+                }
+
+            }else{
                 JOptionPane.showMessageDialog(null, "Adja meg a kategória nevét", "Név megadása", 2);
             }
+
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Nincs kategória kiválasztva!", "Hiba!", 2);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Hiba", 2);
         }
     }//GEN-LAST:event_jButton_UPDATE_CATEGORY_ActionPerformed
 
