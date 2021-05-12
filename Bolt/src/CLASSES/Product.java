@@ -39,9 +39,9 @@ public class Product {
     {
         Connection con = DB_INFO.getConnection();
         PreparedStatement ps;
-        
+
         try {
-            ps = con.prepareStatement("INSERT INTO `product`(`name`, `quantity`, `price`, `category_id`, `place`) VALUES (?,?,?,?,?)");
+            ps = con.prepareStatement("INSERT INTO product(name, quantity, price, category_id, place) VALUES (?,?,?,?,?)");
 
             ps.setString(1, product.getName());
             ps.setInt(2, product.getQuantity());
@@ -51,13 +51,13 @@ public class Product {
 
             if(ps.executeUpdate() != 0){
                 JOptionPane.showMessageDialog(null, "Új termék hozzáadva");
-                
+
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Valami hiba történt!");
-                    
+
                 }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
