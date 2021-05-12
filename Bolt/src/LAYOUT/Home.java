@@ -62,7 +62,7 @@ public class Home extends javax.swing.JFrame {
         jMenu5_Prod_a.setBackground(new java.awt.Color(0, 51, 153));
         jMenu5_Prod_a.setBorder(null);
         jMenu5_Prod_a.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu5_Prod_a.setText("Termékek_A |");
+        jMenu5_Prod_a.setText("Termékek_Admin |");
         jMenu5_Prod_a.setActionCommand("Prod_a");
         jMenu5_Prod_a.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu5_Prod_a.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -77,7 +77,7 @@ public class Home extends javax.swing.JFrame {
         jMenu5_Prod_u.setBackground(new java.awt.Color(0, 51, 153));
         jMenu5_Prod_u.setBorder(null);
         jMenu5_Prod_u.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu5_Prod_u.setText("Termékek_u |");
+        jMenu5_Prod_u.setText("Termékek |");
         jMenu5_Prod_u.setActionCommand("Prod_u");
         jMenu5_Prod_u.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu5_Prod_u.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
