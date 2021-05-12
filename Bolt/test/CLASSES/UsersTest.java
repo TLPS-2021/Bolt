@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CLASSES;
 
 import java.util.ArrayList;
@@ -12,53 +7,64 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 
-/**
- *
- * @author levai
- */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
 public class UsersTest {
-    
-    public UsersTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+
+    @Test
+    public void A_testUsersList() {
+        Users instance = new Users();
+        ArrayList<Users> result = instance.UsersList();
+        assertNotNull(result);
+
     }
 
-    /**
-     * Test of getId method, of class Users.
-     */
-    
     @Test
-    public void testUsersList() {
-        System.out.println("UsersList");
-        Users instance = new Users();
-        ArrayList<Users> expResult = null;
-        ArrayList<Users> result = instance.UsersList();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        
+    public void B_testAddUser() {
+
+        Users user = new Users(12, "Soma", "Soma", "user", "SomaSoma");
+        Users.AddUser(user);
+        Users expected = getUsersByName("Soma");
+        assertNotNull(expected);
+
     }
+
     @Test
-        public void testFullName() {
-            Users u = new Users();
-            u.setFullname("test");
-            String s = u.getFullname();
-            assertEquals(s,"test");
+    public void C_testModifyUser() {
+
+        Users user = new Users(getUsersByName("Soma").getId(), "Soma2", "Soma2","user", "SomaSoma");
+        Users.ModifyUser(user);
+        Users expected = getUsersByName("Soma2");
+        assertNotNull(expected);
+
+    }
+
+    @Test
+    public void D_testDeleteUser() {
+
+        Users user = getUsersByName("Soma2");
+        assertNotNull(user);
+        Users.deleteUser(user.getId());
+        Users expected = getUsersByName("Soma2");
+        assertNull(expected);
+
+    }
+
+    private Users getUsersByName(String UNAME){
+        Users user = new Users();
+        ArrayList<Users> list = user.UsersList();
+
+        for(Users c : list){
+            if(c.getUsername().equals(UNAME)){
+                return c;
+            }
         }
-    
-    
+        return null;
+
+    }
+
+
 }
