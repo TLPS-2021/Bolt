@@ -243,7 +243,7 @@ public class PRODUCTS_a extends javax.swing.JFrame {
      try{
             Integer rowIndex = jTable_Products.getSelectedRow();
             Integer id = Integer.valueOf(jTable_Products.getValueAt(rowIndex, 0).toString());
-            
+            CLASSES.Product.deleteProduct(id);
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Válassz ki egy terméket a táblából!", "Nincs kiválasztott termék!", 2);
         }

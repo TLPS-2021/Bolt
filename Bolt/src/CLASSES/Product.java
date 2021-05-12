@@ -93,6 +93,37 @@ public class Product {
             }
     }
 
+    
+    public static void deleteProduct(Integer id)
+    {
+        Connection con = DB_INFO.getConnection();
+        PreparedStatement ps;
+        
+        try {
+            ps = con.prepareStatement("DELETE FROM `product` WHERE `id` = ?");
+
+            ps.setInt(1, id);
+
+            // show a confirmation message before deleting the product
+            int YesOrNo = JOptionPane.showConfirmDialog(null,"Valóban szeretnéd törölni ezt a terméket?","Termék törlése", JOptionPane.YES_NO_OPTION);
+            if(YesOrNo == 0){
+                
+                if(ps.executeUpdate() != 0){
+                JOptionPane.showMessageDialog(null, "Termék törölve");
+                
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Hiba!");
+                    
+                }
+                
+            }
+                      
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
         
         
 
