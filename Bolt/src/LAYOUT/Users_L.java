@@ -40,7 +40,7 @@ public class Users_L extends javax.swing.JFrame {
         CLASSES.Users user = new CLASSES.Users();
         ArrayList<CLASSES.Users> userList = user.UsersList();
         
-        String[] colNames = {"Id","username","password","fullname"};
+        String[] colNames = {"ID","Felhasználónév","Jelszó","Teljes név"};
         Object[][] rows = new Object[userList.size()][6];
 
         for(int i = 0; i < userList.size(); i++){

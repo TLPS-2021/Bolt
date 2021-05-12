@@ -178,7 +178,7 @@ public class Users {
             ps.setInt(4, user.getId());
 
             if(ps.executeUpdate() != 0){
-                JOptionPane.showMessageDialog(null, "Felhasználó modosítva");
+                JOptionPane.showMessageDialog(null, "Felhasználó módosítva");
                 
                 }
                 else{
