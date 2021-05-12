@@ -288,6 +288,13 @@ public class PRODUCTS_User extends javax.swing.JFrame {
                 
                 HashMap<String, Integer> map = category.populateCombo();
                 
+                
+                
+                if(Integer.valueOf(jTable_Products.getValueAt(rowIndex, 3).toString())-Integer.valueOf(jTextField_Quantity.getText()) < 0){
+                    JOptionPane.showMessageDialog(null, "A mennyiség nem lehet kisebb mint 0!", "", 1);
+                }
+                else
+                {
                 productId = Integer.valueOf(jTable_Products.getValueAt(rowIndex, 0).toString());
                 String name = jTable_Products.getValueAt(rowIndex, 1).toString();
                 String price = jTable_Products.getValueAt(rowIndex, 2).toString();
@@ -298,7 +305,8 @@ public class PRODUCTS_User extends javax.swing.JFrame {
                 Prod = new CLASSES.Product(productId,name,catId,price,quantity,place,null);
                 
                 CLASSES.Product.updateProduct(Prod);
-                populateJtable("");                
+                populateJtable(""); 
+                }
                                                            
     }//GEN-LAST:event_jButton_NEG_PRODUCT1MouseClicked
 
