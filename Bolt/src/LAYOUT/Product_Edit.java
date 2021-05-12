@@ -1,10 +1,16 @@
 package LAYOUT;
 
 
+import CLASSES.DB_INFO;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,11 +19,11 @@ import javax.swing.JOptionPane;
 
 
 
-public class Product_e extends javax.swing.JFrame {
+public class Product_Edit extends javax.swing.JFrame {
     
     public Integer productId;
     
-    public Product_e() {
+    public Product_Edit() {
         initComponents();
         BindCombo();
     }
@@ -200,7 +206,7 @@ public class Product_e extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_CANCELActionPerformed
 
     private void jButton_EDIT_PRODUCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EDIT_PRODUCTActionPerformed
-        CLASSES.Product product;
+                CLASSES.Product product;
         CLASSES.Category category = new CLASSES.Category();
 
         HashMap<String, Integer> map = category.populateCombo();
@@ -210,17 +216,43 @@ public class Product_e extends javax.swing.JFrame {
         String place = jTextField_Place.getText();
         Integer quantity;
         Integer catId;
+        if(verifFields())
+        {
+            
+            Connection con = DB_INFO.getConnection();
+            ResultSet rs;
+            PreparedStatement ps;
+            String query = "SELECT place FROM product";
+            ArrayList<String> place_a = new ArrayList<>();
+             try {
 
-             if(verifFields())
-                    {
-                        quantity = Integer.valueOf(jTextField_Quantity.getText());
-                        catId = map.get(jComboBox1.getSelectedItem().toString());
-                        price = jTextField_Price.getText();
+                 ps = con.prepareStatement(query);
+                 rs = ps.executeQuery();
 
-                        product = new CLASSES.Product(productId,name,catId,price,quantity,place,null);
-                        CLASSES.Product.updateProduct(product);
-                    }
-        
+                 while(rs.next()){
+                    String tmp = rs.getString("place");
+                    place_a.add(tmp);
+                }
+
+             } catch (SQLException ex) {
+                 Logger.getLogger(Users_L.class.getName()).log(Level.SEVERE, null, ex);
+             }
+             boolean contains = place_a.contains(place);
+             if(!contains){
+                quantity = Integer.valueOf(jTextField_Quantity.getText());
+                catId = map.get(jComboBox1.getSelectedItem().toString());
+                price = jTextField_Price.getText();
+                product = new CLASSES.Product(productId,name,catId,price,quantity,place,null);
+                CLASSES.Product.updateProduct(product);
+             }
+             else
+             {
+                 JOptionPane.showMessageDialog(null, "A raktárhely foglalt!", "", 1);
+             }
+             
+            
+            
+        }
     }//GEN-LAST:event_jButton_EDIT_PRODUCTActionPerformed
 
     private void jTextField_QuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_QuantityKeyTyped
@@ -266,14 +298,18 @@ public class Product_e extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Product_e.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Product_Edit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Product_e.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Product_Edit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Product_e.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Product_Edit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Product_e.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Product_Edit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -282,7 +318,7 @@ public class Product_e extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Product_e().setVisible(true);
+                new Product_Edit().setVisible(true);
             }
         });
      }

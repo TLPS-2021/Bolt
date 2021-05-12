@@ -1,20 +1,28 @@
 package LAYOUT;
 
 
+import CLASSES.DB_INFO;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
 
 
-public class Product_T extends javax.swing.JFrame {
+public class Product_Add extends javax.swing.JFrame {
 
     
-    public Product_T() {
+    public Product_Add() {
         initComponents();
         BindCombo();
     }
@@ -188,11 +196,40 @@ public class Product_T extends javax.swing.JFrame {
         Integer catId;
         if(verifFields())
         {
-            quantity = Integer.valueOf(jTextField_Quantity.getText());
-            catId = map.get(jComboBox1.getSelectedItem().toString());
-            price = jTextField_Price.getText();
-            product = new CLASSES.Product(null,name,catId,price,quantity,place,null);
-            CLASSES.Product.insertProduct(product);
+            
+            Connection con = DB_INFO.getConnection();
+            ResultSet rs;
+            PreparedStatement ps;
+            String query = "SELECT place FROM product";
+            ArrayList<String> place_a = new ArrayList<>();
+             try {
+
+                 ps = con.prepareStatement(query);
+                 rs = ps.executeQuery();
+
+                 while(rs.next()){
+                    String tmp = rs.getString("place");
+                    place_a.add(tmp);
+                }
+
+             } catch (SQLException ex) {
+                 Logger.getLogger(Users_L.class.getName()).log(Level.SEVERE, null, ex);
+             }
+             boolean contains = place_a.contains(place);
+             if(!contains){
+                quantity = Integer.valueOf(jTextField_Quantity.getText());
+                catId = map.get(jComboBox1.getSelectedItem().toString());
+                price = jTextField_Price.getText();
+                product = new CLASSES.Product(null,name,catId,price,quantity,place,null);
+                CLASSES.Product.insertProduct(product);
+             }
+             else
+             {
+                 JOptionPane.showMessageDialog(null, "A raktárhely foglalt!", "", 1);
+             }
+             
+            
+            
         }
     }//GEN-LAST:event_jButton_ADD_PRODUCTActionPerformed
 
@@ -254,18 +291,18 @@ public class Product_T extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Product_T.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Product_Add.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Product_T.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Product_Add.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Product_T.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Product_Add.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Product_T.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Product_Add.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
           
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Product_T().setVisible(true);
+                new Product_Add().setVisible(true);
             }
         });
     }

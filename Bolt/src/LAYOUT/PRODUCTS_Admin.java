@@ -12,10 +12,10 @@ import javax.swing.table.JTableHeader;
 
 
 
-public class PRODUCTS_a extends javax.swing.JFrame {
+public class PRODUCTS_Admin extends javax.swing.JFrame {
     public Integer productId;
   
-    public PRODUCTS_a() {
+    public PRODUCTS_Admin() {
         
         initComponents();
        
@@ -53,7 +53,7 @@ public class PRODUCTS_a extends javax.swing.JFrame {
         
         DefaultTableModel mmodel = new DefaultTableModel(rows, colNames);
         jTable_Products.setModel(mmodel);
-        jTable_Products.setRowHeight(80);
+        jTable_Products.setRowHeight(60);
         jTable_Products.getColumnModel().getColumn(5).setPreferredWidth(150);
         jTable_Products.getColumnModel().getColumn(4).setPreferredWidth(120);
         
@@ -143,7 +143,7 @@ public class PRODUCTS_a extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_DELETE_PRODUCT_, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                    .addComponent(jButton_DELETE_PRODUCT_, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton_INSERT_PRODUCT_, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton_UPDATE_PRODUCT_, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -196,7 +196,7 @@ public class PRODUCTS_a extends javax.swing.JFrame {
     
     
     private void jButton_INSERT_PRODUCT_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_INSERT_PRODUCT_ActionPerformed
-              Product_T addProductForm = new Product_T();
+              Product_Add addProductForm = new Product_Add();
                 addProductForm.pack();
                 addProductForm.setVisible(true);
                 addProductForm.setLocationRelativeTo(null);
@@ -214,7 +214,7 @@ public class PRODUCTS_a extends javax.swing.JFrame {
        try{
 
             
-            Product_e editProductForm = new Product_e();
+            Product_Edit editProductForm = new Product_Edit();
 
             Integer rowIndex = jTable_Products.getSelectedRow();
 
@@ -270,14 +270,18 @@ public class PRODUCTS_a extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PRODUCTS_a.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PRODUCTS_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PRODUCTS_a.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PRODUCTS_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PRODUCTS_a.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PRODUCTS_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PRODUCTS_a.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PRODUCTS_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -286,7 +290,7 @@ public class PRODUCTS_a extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PRODUCTS_a().setVisible(true);
+                new PRODUCTS_Admin().setVisible(true);
             }
         });
     }

@@ -174,7 +174,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="+"/>
-            <Property name="actionCommand" type="java.lang.String" value="+"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_ADD_PRODUCTMouseClicked"/>
@@ -192,7 +191,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="-"/>
-            <Property name="actionCommand" type="java.lang.String" value="-"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_NEG_PRODUCT1MouseClicked"/>

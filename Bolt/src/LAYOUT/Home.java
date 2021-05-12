@@ -129,7 +129,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jMenu5_Prod_a1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5_Prod_a1MouseClicked
         // TODO add your handling code here:
-        PRODUCTS_a productForm = new PRODUCTS_a();
+        PRODUCTS_Admin productForm = new PRODUCTS_Admin();
                 productForm.pack();
                 productForm.setVisible(true);
                 productForm.setLocationRelativeTo(null);
@@ -138,7 +138,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jMenu5_Prod_uMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5_Prod_uMouseClicked
         // TODO add your handling code here:
-        PRODUCTS_u productForm = new PRODUCTS_u();
+        PRODUCTS_User productForm = new PRODUCTS_User();
                 productForm.pack();
                 productForm.setVisible(true);
                 productForm.setLocationRelativeTo(null);

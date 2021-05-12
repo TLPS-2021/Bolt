@@ -20,10 +20,10 @@ import javax.swing.table.JTableHeader;
 
 
 
-public class PRODUCTS_u extends javax.swing.JFrame {
+public class PRODUCTS_User extends javax.swing.JFrame {
     public Integer productId;
     Integer position = 0;
-    public PRODUCTS_u() {
+    public PRODUCTS_User() {
         
         initComponents();
        
@@ -123,7 +123,6 @@ public class PRODUCTS_u extends javax.swing.JFrame {
         jButton_ADD_PRODUCT.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton_ADD_PRODUCT.setForeground(new java.awt.Color(255, 255, 255));
         jButton_ADD_PRODUCT.setText("+");
-        jButton_ADD_PRODUCT.setActionCommand("+");
         jButton_ADD_PRODUCT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton_ADD_PRODUCTMouseClicked(evt);
@@ -134,7 +133,6 @@ public class PRODUCTS_u extends javax.swing.JFrame {
         jButton_NEG_PRODUCT1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton_NEG_PRODUCT1.setForeground(new java.awt.Color(255, 255, 255));
         jButton_NEG_PRODUCT1.setText("-");
-        jButton_NEG_PRODUCT1.setActionCommand("-");
         jButton_NEG_PRODUCT1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton_NEG_PRODUCT1MouseClicked(evt);
@@ -301,21 +299,23 @@ public class PRODUCTS_u extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PRODUCTS_u.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PRODUCTS_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PRODUCTS_u.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PRODUCTS_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PRODUCTS_u.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PRODUCTS_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PRODUCTS_u.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PRODUCTS_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PRODUCTS_u().setVisible(true);
+                new PRODUCTS_User().setVisible(true);
             }
         });
     }
