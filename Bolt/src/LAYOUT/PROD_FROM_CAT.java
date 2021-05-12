@@ -35,7 +35,7 @@ public class PROD_FROM_CAT extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 153));
 
         jTable_PRODUCTS_IN_CATEGORY.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
