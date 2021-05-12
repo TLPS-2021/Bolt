@@ -84,7 +84,7 @@ public class Product_e extends javax.swing.JFrame {
         });
 
         jButton_EDIT_PRODUCT.setBackground(new java.awt.Color(0, 0, 255));
-        jButton_EDIT_PRODUCT.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton_EDIT_PRODUCT.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton_EDIT_PRODUCT.setForeground(new java.awt.Color(255, 255, 255));
         jButton_EDIT_PRODUCT.setText("Módosít");
         jButton_EDIT_PRODUCT.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +94,7 @@ public class Product_e extends javax.swing.JFrame {
         });
 
         jButton_CANCEL.setBackground(new java.awt.Color(255, 0, 0));
-        jButton_CANCEL.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton_CANCEL.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton_CANCEL.setForeground(new java.awt.Color(255, 255, 255));
         jButton_CANCEL.setText("Kilép");
         jButton_CANCEL.addActionListener(new java.awt.event.ActionListener() {

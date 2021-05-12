@@ -35,7 +35,7 @@ public class PROD_FROM_CAT extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 153));
 
         jTable_PRODUCTS_IN_CATEGORY.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -49,7 +49,7 @@ public class PROD_FROM_CAT extends javax.swing.JFrame {
 
         jLabel_CATEGORY_NAME.setBackground(new java.awt.Color(255, 255, 255));
         jLabel_CATEGORY_NAME.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel_CATEGORY_NAME.setText(" Products In The Category :  Ctg Name");
+        jLabel_CATEGORY_NAME.setText("Termékek az adott kategóriában:  Kategórianév");
         jLabel_CATEGORY_NAME.setOpaque(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -59,10 +59,11 @@ public class PROD_FROM_CAT extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
                         .addComponent(jLabel_CATEGORY_NAME, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(

@@ -70,7 +70,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jButton_LOGIN.setBackground(new java.awt.Color(0, 51, 152));
-        jButton_LOGIN.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton_LOGIN.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton_LOGIN.setForeground(new java.awt.Color(255, 255, 255));
         jButton_LOGIN.setText("Belépés");
         jButton_LOGIN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
