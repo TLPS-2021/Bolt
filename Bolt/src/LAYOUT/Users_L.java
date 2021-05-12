@@ -1,8 +1,16 @@
 package LAYOUT;
 
+import CLASSES.DB_INFO;
+import CLASSES.Users;
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -268,22 +276,48 @@ public class Users_L extends javax.swing.JFrame {
 
  //adduser
     private void jButton_INSERT_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_INSERT_ActionPerformed
-            if(verifFields())
+          if(verifFields())
         {
             String uname = jTextField_USERNAME.getText();
             String pass = jTextField_PASSWORD.getText();
             String fname = jTextField_FULLNAME.getText();
 
-            CLASSES.Users user = new CLASSES.Users(null,uname,pass,null,fname);
-            CLASSES.Users.AddUser(user);
-            populateJtable();
+            Connection con = DB_INFO.getConnection();
+            ResultSet rs;
+            PreparedStatement ps;
+            String query = "SELECT username FROM users";
+            ArrayList<String> username_list = new ArrayList<>();
+
+             try {
+
+                 ps = con.prepareStatement(query);
+                 rs = ps.executeQuery();
+
+                 while(rs.next()){
+                    String tmp = rs.getString("username");
+                    username_list.add(tmp);
+                }
+
+             } catch (SQLException ex) {
+                 Logger.getLogger(Users_L.class.getName()).log(Level.SEVERE, null, ex);
+             }
+             boolean contains = username_list.contains(uname);
+             if(!contains){
+                    CLASSES.Users user = new CLASSES.Users(null,uname,pass,null,fname);
+                    CLASSES.Users.AddUser(user);
+                    populateJtable();
+             }
+             else
+             {
+                 JOptionPane.showMessageDialog(null, "Mar van ilyen nevű felhasználó!", "Nincs felhasználó kiválasztva", 1);
+             }
         }
-        
     }//GEN-LAST:event_jButton_INSERT_ActionPerformed
 //updateuser
     private void jButton_UPDATE_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UPDATE_ActionPerformed
-        try{
-            
+        
+       try{
+
             if(verifFields())
             {
                 Integer id = Integer.valueOf(jTextField_ID.getText());
@@ -291,14 +325,42 @@ public class Users_L extends javax.swing.JFrame {
                 String pass = jTextField_PASSWORD.getText();
                 String fname = jTextField_FULLNAME.getText();
 
-                CLASSES.Users user = new CLASSES.Users(id,uname,pass,null,fname);
-                CLASSES.Users.ModifyUser(user);
+                Connection con = DB_INFO.getConnection();
+                ResultSet rs;
+                PreparedStatement ps;
+                String query = "SELECT username FROM users";
+                ArrayList<String> username_list = new ArrayList<>();
+
+                try {
+
+                 ps = con.prepareStatement(query);
+                 rs = ps.executeQuery();
+
+                 while(rs.next()){
+                    String tmp = rs.getString("username");
+                    username_list.add(tmp);
+                }
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(Users_L.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                 boolean contains = username_list.contains(uname);
+                if(!contains)
+                {
+                    CLASSES.Users user = new CLASSES.Users(id,uname,pass,null,fname);
+                    CLASSES.Users.ModifyUser(user);
+                    populateJtable();
+                }
+                 else
+                {
+                    JOptionPane.showMessageDialog(null, "Mar van ilyen nevű felhasználó!", "Nincs felhasználó kiválasztva", 1);
+                }
             }
-            
+
         }
         catch(Exception ex){
                 JOptionPane.showMessageDialog(null, "Nincs felhasználó kiválasztva!", "Nincs felhasználó kiválasztva+", 1);
-                }
+            }
     }//GEN-LAST:event_jButton_UPDATE_ActionPerformed
 //del user
     private void jButton_DELETE_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DELETE_ActionPerformed
