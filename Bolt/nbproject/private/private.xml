@@ -3,23 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/test/CLASSES/ProductTest.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/LAYOUT/Users_L.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/CLASSES/Product.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/test/CLASSES/CategoryTest.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/test/CLASSES/UsersTest.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/CLASSES/Users.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/LAYOUT/Product_e.java</file>
-=======
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/LAYOUT/Login.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/LAYOUT/Users_L.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/CLASSES/Users.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/CLASSES/DB_INFO.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/CLASSES/Category.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/LAYOUT/Category_L.java</file>
-            <file>file:/C:/Users/Elek/Documents/GitHub/Bolt/Bolt/src/LAYOUT/Home.java</file>
->>>>>>> Stashed changes
+            <file>file:/C:/Users/levai/OneDrive/Asztali%20gép/szoftverfejlesztesprojekt/Vegleges/Bolt/Bolt/src/LAYOUT/Category_L.java</file>
+            <file>file:/C:/Users/levai/OneDrive/Asztali%20gép/szoftverfejlesztesprojekt/Vegleges/Bolt/Bolt/src/LAYOUT/PRODUCTS_User.java</file>
+            <file>file:/C:/Users/levai/OneDrive/Asztali%20gép/szoftverfejlesztesprojekt/Vegleges/Bolt/Bolt/src/LAYOUT/Product_Edit.java</file>
+            <file>file:/C:/Users/levai/OneDrive/Asztali%20gép/szoftverfejlesztesprojekt/Vegleges/Bolt/Bolt/src/LAYOUT/Product_Add.java</file>
         </group>
     </open-files>
 </project-private>

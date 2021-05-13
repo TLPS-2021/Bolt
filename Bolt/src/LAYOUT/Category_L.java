@@ -308,6 +308,7 @@ public class Category_L extends javax.swing.JFrame {
         jTextField_CATEGORY_ID.setText(jTable_CATEGORIES_.getValueAt(rowIndex, 0).toString());
         jTextField_CATEGORY_NAME.setText(jTable_CATEGORIES_.getValueAt(rowIndex, 1).toString());
         
+        populateProductsList(Integer.valueOf(jTable_CATEGORIES_.getValueAt(rowIndex, 0).toString()));
         
         position = rowIndex;
     }//GEN-LAST:event_jTable_CATEGORIES_MouseClicked
